@@ -2,7 +2,7 @@
   "name": "king",
   "version": "1.0.0",
   "description": "Generator based HTTP client for the Kong API Gateway",
-  "main": "index.js",
+  "main": "lib/king/index.js",
   "scripts": {
     "test": "node script/test.js"
   },
@@ -20,10 +20,28 @@
     "microservice",
     "king"
   ],
+  "engines": {
+    "node": ">=0.12.0",
+    "iojs": ">=2.0.0"
+  },
   "author": "Eric Satterwhite <esatterwhite@wi.rr.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/threadmeup/king/issues"
   },
-  "homepage": "https://github.com/threadmeup/king#readme"
+  "homepage": "https://github.com/threadmeup/king#readme",
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-request": "^1.0.0",
+    "mout": "^0.11.1",
+    "prime": "^0.5.0",
+    "seeli": "^0.4.3",
+    "urljoin": "^0.1.5"
+  },
+  "devDependencies": {
+    "ink-docstrap": "^0.5.2",
+    "jsdoc": "^3.4.0",
+    "mocha": "^2.3.4",
+    "should": "^7.1.1"
+  }
 }
