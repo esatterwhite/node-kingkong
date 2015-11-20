@@ -1,0 +1,29 @@
+{
+  "name": "king",
+  "version": "1.0.0",
+  "description": "Generator based HTTP client for the Kong API Gateway",
+  "main": "index.js",
+  "scripts": {
+    "test": "node script/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/threadmeup/king.git"
+  },
+  "keywords": [
+    "kong",
+    "api",
+    "gateway",
+    "mashape",
+    "fulfill",
+    "threadmeup",
+    "microservice",
+    "king"
+  ],
+  "author": "Eric Satterwhite <esatterwhite@wi.rr.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/threadmeup/king/issues"
+  },
+  "homepage": "https://github.com/threadmeup/king#readme"
+}
