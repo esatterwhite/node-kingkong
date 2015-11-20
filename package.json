@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/threadmeup/king.git"
+    "url": "git+https://github.com/threadmeup/node-king.git"
   },
   "keywords": [
     "kong",
@@ -27,9 +27,9 @@
   "author": "Eric Satterwhite <esatterwhite@wi.rr.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/threadmeup/king/issues"
+    "url": "https://github.com/threadmeup/node-king/issues"
   },
-  "homepage": "https://github.com/threadmeup/king#readme",
+  "homepage": "https://github.com/threadmeup/node-king#readme",
   "dependencies": {
     "co": "^4.6.0",
     "co-request": "^1.0.0",
