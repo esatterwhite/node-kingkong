@@ -6,6 +6,9 @@
   "scripts": {
     "test": "node script/test.js"
   },
+  "bin": {
+    "king": "bin/cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/threadmeup/node-king.git"
@@ -33,9 +36,10 @@
   "dependencies": {
     "co": "^4.6.0",
     "co-request": "^1.0.0",
+    "debug": "^2.2.0",
     "mout": "^0.11.1",
     "prime": "^0.5.0",
-    "seeli": "^0.4.3",
+    "seeli": "^1.0.0",
     "urljoin": "^0.1.5"
   },
   "devDependencies": {
