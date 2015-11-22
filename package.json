@@ -2,7 +2,7 @@
   "name": "king",
   "version": "1.0.0",
   "description": "Generator based HTTP client for the Kong API Gateway",
-  "main": "lib/king/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "node script/test.js"
   },
