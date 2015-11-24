@@ -1,5 +1,8 @@
+'use strict';
 var assert = require('assert');
 var King = require('../lib')
+var co = require('co')
+
 describe('King', function(){
 	describe('~hosts', function(){
 		describe('#url', function(){
@@ -89,6 +92,31 @@ describe('King', function(){
                     },250);
                 }
             });
+        });
+    });
+
+    describe('#request', function(){
+        var k3;
+        before(function( done ){
+            k3 = new King({
+                host:['http://locahost:8001', 'http://localhost:8002']
+            });
+            done();
+        });
+
+        it('should not allow requests to unknown resource types', function(done){
+            assert.throws(function(){
+                k3.request('get', 'foobars');
+            });
+            done();
+        });
+
+        it('should allow known resource types',function( done ){
+            co( function*(){
+                yield k3.request('get','api');    
+                yield k3.request('get','apis');    
+                yield k3.request('get','api');
+            }).then( done.bind(null, null )).catch( done );
         })
     });
 });
