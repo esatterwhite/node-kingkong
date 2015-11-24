@@ -30,11 +30,44 @@ describe('King', function(){
 				var first = k2.url().replace(/\/$/,'')
 				  , second
 				  ;
-				assert.notEqual(k2.options.hosts.indexOf( first, -1 ) )
+			
+                assert.notEqual(k2.options.hosts.indexOf( first, -1 ) )
 				second = k2.url().replace(/\/$/, '')
 				assert.notEqual( first, second )
 				assert.notEqual(k2.options.hosts.indexOf( second, -1 ) )
 			})
-		})
+		});
 	});
+
+    describe('~apis', function( ){
+        var k1;
+        before(function( done ){
+            k1 = new King({
+                apis:[{
+                    name:'__test',
+                    upstream_url:'http://localhost:9000',
+                    request_path:'/test',
+                    strip_request_path:true,
+                    request_path:'/test'
+                }]
+            });
+            done();
+        });
+        
+        after( function( done ){
+            k1
+                .destroy('apis','__test')
+                .then( done.bind(null,null) )
+                .catch( done ); 
+        });
+        
+        it('should auto create an api', function( done ){
+            k1.list('apis').then( function( ls ){
+               assert.ok( ls.length );
+               assert.equal(1, ls.filter( function(i){return i.name === '__test'}).length);
+               done();
+            });
+
+        });
+    });
 });
