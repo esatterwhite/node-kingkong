@@ -67,7 +67,25 @@ describe('King', function(){
                assert.equal(1, ls.filter( function(i){return i.name === '__test'}).length);
                done();
             });
-
         });
+
+        it('should auto update existing apis when instanciated', function( done ){
+            var k2 = new King({
+                apis:[{
+                    name:'__test',
+                    upstream_url:'http://localhost:9000',
+                    request_path:'/test',
+                    strip_request_path:false,
+                    request_path:'/test'
+                }]
+            });
+            
+            k2.request('get','apis','__test')
+              .then( function( data ){
+                    assert.strictEqual(data.body.strip_request_path, false);
+                    done();
+              })
+              .catch( done )
+        })
     });
 });
