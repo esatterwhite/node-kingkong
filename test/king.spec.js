@@ -46,6 +46,7 @@ describe('King', function(){
         var k1;
         before(function( done ){
             k1 = new King({
+                sync:true,
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
@@ -74,6 +75,7 @@ describe('King', function(){
 
         it('should auto update existing apis when instanciated', function( done ){
             var k2 = new King({
+                sync:true,
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
@@ -81,14 +83,14 @@ describe('King', function(){
                     strip_request_path:false,
                     request_path:'/test'
                 }]
-                ,onAutocreate:function(){
-                        setTimeout(function(){
-                            k2.request('get','apis','__test')
-                          .then( function( data ){
-                                assert.strictEqual(data.body.strip_request_path, false);
-                                done();
-                          })
-                          .catch( done )
+                ,onSync:function(){
+                    setTimeout(function(){
+                        k2.request('get','apis','__test')
+                      .then( function( data ){
+                            assert.strictEqual(data.body.strip_request_path, false);
+                            done();
+                      })
+                      .catch( done )
                     },250);
                 }
             });
