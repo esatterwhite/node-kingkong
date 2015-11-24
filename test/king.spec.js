@@ -1,7 +1,7 @@
 'use strict';
 var assert = require('assert');
-var King = require('../lib')
-var co = require('co')
+var King = require('../lib');
+var co = require('co');
 
 describe('King', function(){
 	describe('~hosts', function(){
@@ -17,8 +17,8 @@ describe('King', function(){
 				})
 			})
 			it('should accept a single url', function(){
-				assert.equal(k1.url(), 'http://localhost:8001/')
-				assert.equal(k1.url(), 'http://localhost:8001/')
+				assert.equal(k1.url(), 'http://localhost:8001')
+				assert.equal(k1.url(), 'http://localhost:8001')
 			});
 
 			it('should accept a resource parameter', function(){
@@ -115,7 +115,10 @@ describe('King', function(){
             co( function*(){
                 yield k3.request('get','api');    
                 yield k3.request('get','apis');    
-                yield k3.request('get','api');
+                yield k3.request('get','consumer');
+                yield k3.request('get','consumers');
+                yield k3.request('get','plugin');
+                yield k3.request('get','plugins');
             }).then( done.bind(null, null )).catch( done );
         })
     });
