@@ -9,7 +9,7 @@ describe('King', function(){
 				k2 = new King({
 					hosts:[
 						'http://localhost:8001',
-						'http://localhost:8002',
+						'http://localhost:8002'
 					]
 				})
 			})
@@ -30,12 +30,10 @@ describe('King', function(){
 				var first = k2.url().replace(/\/$/,'')
 				  , second
 				  ;
-
 				assert.notEqual(k2.options.hosts.indexOf( first, -1 ) )
 				second = k2.url().replace(/\/$/, '')
-				assert.notEqual( first, seond )
+				assert.notEqual( first, second )
 				assert.notEqual(k2.options.hosts.indexOf( second, -1 ) )
-				
 			})
 		})
 	});
