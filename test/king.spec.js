@@ -78,14 +78,17 @@ describe('King', function(){
                     strip_request_path:false,
                     request_path:'/test'
                 }]
+                ,onAutocreate:function(){
+                        setTimeout(function(){
+                            k2.request('get','apis','__test')
+                          .then( function( data ){
+                                assert.strictEqual(data.body.strip_request_path, false);
+                                done();
+                          })
+                          .catch( done )
+                    },250);
+                }
             });
-            
-            k2.request('get','apis','__test')
-              .then( function( data ){
-                    assert.strictEqual(data.body.strip_request_path, false);
-                    done();
-              })
-              .catch( done )
         })
     });
 });
