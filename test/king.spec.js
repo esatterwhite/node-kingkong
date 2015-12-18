@@ -54,8 +54,10 @@ describe('King', function(){
                     strip_request_path:true,
                     request_path:'/test'
                 }]
+                ,onSync: function(){
+                    done();
+                }
             });
-            done();
         });
         
         after( function( done ){
@@ -67,10 +69,10 @@ describe('King', function(){
         
         it('should auto create an api', function( done ){
             k1.list('apis').then( function( ls ){
-               assert.ok( ls.length );
-               assert.equal(1, ls.filter( function(i){return i.name === '__test'}).length);
+               assert.ok( ls.length, 'should have created an api' );
+               assert.equal(1, ls.filter( function(i){return i.name === '__test'}).length, 'should have a __test api');
                done();
-            });
+            }).catch( done );
         });
 
         it('should auto update existing apis when instanciated', function( done ){
