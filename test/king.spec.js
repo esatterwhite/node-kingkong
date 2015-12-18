@@ -75,6 +75,35 @@ describe('King', function(){
             }).catch( done );
         });
 
+        it('should create defined plugins', function( done ){
+            var k2 = new King({
+                sync:true,
+                apis:[{
+                    name:'__test',
+                    upstream_url:'http://localhost:9000',
+                    request_path:'/test',
+                    strip_request_path:true,
+                    request_path:'/test',
+                    plugins:{
+                        'http-log':{
+                            config:{
+                                http_endpoint:'http://localhost:4343',
+                                method:'POST'
+                            }
+                        }
+                    }
+                }]
+                ,onSync: function(){
+                    k2.list('plugins').then(function( pls ){
+                        pls.forEach( function(plugin){
+                            assert(plugin.name, 'http-log')
+                        });
+                        done();
+                    })
+                }
+            });
+        })
+
         it('should auto update existing apis when instanciated', function( done ){
             var k2 = new King({
                 sync:true,
@@ -88,11 +117,12 @@ describe('King', function(){
                 ,onSync:function(){
                     setTimeout(function(){
                         k2.request('get','apis','__test')
-                      .then( function( data ){
-                            assert.strictEqual(data.body.strip_request_path, false);
-                            done();
-                      })
-                      .catch( done )
+                          .then( function( data ){
+                            console.log('sync', data)
+                                assert.strictEqual(data.body.strip_request_path, false);
+                                done();
+                          })
+                          .catch( done )
                     },250);
                 }
             });
