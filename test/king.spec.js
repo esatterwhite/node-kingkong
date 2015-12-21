@@ -5,6 +5,31 @@ var co = require('co');
 
 describe('King', function(){
 	describe('~hosts', function(){
+        
+        it('should accept a comma separated list of hosts', function( ){
+            var k1 = new King({
+                hosts:"http://localhost:8001, http://localhost:8002,http://localhost:8003"
+            });
+            assert.ok( Array.isArray( k1.options.hosts ) );
+            assert.equal( k1.options.hosts.length, 3 );
+
+            assert.equal( k1.options.hosts[0], 'http://localhost:8001' )
+            assert.equal( k1.options.hosts[1], 'http://localhost:8002' )
+            assert.equal( k1.options.hosts[2], 'http://localhost:8003' )
+        });
+
+        it('should ignore invalid urls', function(  ){
+            var k1 = new King({
+                hosts:"http:/localhost, http://localhost:8002,http://localhost:8003"
+            });
+            assert.ok( Array.isArray( k1.options.hosts ) );
+            assert.equal( k1.options.hosts.length, 2 );
+
+            assert.equal( k1.options.hosts[0], 'http://localhost:8002' )
+            assert.equal( k1.options.hosts[1], 'http://localhost:8003' )
+        
+        })
+
 		describe('#url', function(){
 			var k1, k2
 			before( function(){
@@ -118,7 +143,6 @@ describe('King', function(){
                     setTimeout(function(){
                         k2.request('get','apis','__test')
                           .then( function( data ){
-                            console.log('sync', data)
                                 assert.strictEqual(data.body.strip_request_path, false);
                                 done();
                           })
