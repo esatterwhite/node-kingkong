@@ -20,8 +20,13 @@
 <div class="container">
 	<div class="navbar-header">
 		<a class="navbar-brand" href="index.html">King</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
 	</div>
-	<div class="navbar-collapse">
+	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
 			
 			<li class="dropdown">
@@ -39,19 +44,29 @@
 			</li>
 			
 		</ul>
+		<div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
 	</div>
+
 </div>
 </div>
 
 
-<div class="container">
+<div class="container" id="toc-content">
 <div class="row">
 
 	
 	<div class="col-md-8">
 	
 		<div id="main">
-    		<h1 class="page-title">Module: king</h1>
 			
 
 	<h1 class="page-title">Module: king</h1>
@@ -75,13 +90,14 @@
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="module:king"><span class="type-signature"></span>new (require("king"))<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="module:king"><span class="type-signature"></span>new (require("king"))(<span class="optional">options</span>)</h4>
     
     
 </dt>
 <dd>
-    
+
     
 
     
@@ -97,7 +113,7 @@
     
 
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -105,25 +121,25 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -134,6 +150,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -154,32 +171,32 @@
             
 
             <td class="description last">
-                <h6>Properties</h6>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
-		<th>Default</th>
-		
+        
+        <th>Default</th>
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -193,6 +210,7 @@
 |
 
 <span class="param-type">Array.&lt;String></span>
+
 
 
             
@@ -221,7 +239,7 @@
             <td class="description last"></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -232,6 +250,7 @@
             
                 
 <span class="param-type">Array.&lt;<a href="module-king.html#~Api">module:king~Api</a>></span>
+
 
 
             
@@ -258,22 +277,22 @@
             <td class="description last"><p>an array of api configurations to be created or updated when the instance is created</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
             </td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -310,7 +329,11 @@
 	
 </dl>
 
+
     
+
+    
+
     
 
     
@@ -318,11 +341,7 @@
     
 
     
-    
-    
-    
-    
-    
+
     
         <h5>Examples</h5>
         
@@ -409,13 +428,14 @@
 
         <dl>
             
+<hr>
 <dt>
-    <h4 class="name" id="create"><span class="type-signature"></span>create<span class="signature">(resource, items)</span><span class="type-signature"> &rarr; {TYPE}</span></h4>
+    <h4 class="name" id="create"><span class="type-signature"></span>create(resource, items)</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Creates one or more instance of a resource. If the resource already exists, it will be updated</p>
@@ -425,7 +445,7 @@
     
 
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -433,23 +453,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -462,6 +482,7 @@
 <span class="param-type">String</span>
 
 
+
             
             </td>
 
@@ -472,7 +493,7 @@
             <td class="description last"><p>The type of resource to generate a url for ( api, plugin, consumer )</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -488,6 +509,7 @@
 <span class="param-type">Array.&lt;Object></span>
 
 
+
             
             </td>
 
@@ -498,15 +520,15 @@
             <td class="description last"><p>configurations of the resource to create</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -543,17 +565,17 @@
 	
 </dl>
 
-    
-    
 
     
 
     
 
     
+
     
+
     
-    
+
     
     <h5>Returns:</h5>
     
@@ -561,32 +583,34 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">TYPE</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy<span class="signature">(resource, id)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy(resource, id)</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Destroys a specific resource</p>
@@ -596,7 +620,7 @@
     
 
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -604,23 +628,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -631,6 +655,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -643,7 +668,7 @@
             <td class="description last"><p>the type of resource to operate on ( api, consumer, plugin )</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -654,6 +679,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -666,15 +692,15 @@
             <td class="description last"><p>The id or name of a specific resource to destroy</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -711,7 +737,11 @@
 	
 </dl>
 
+
     
+
+    
+
     
 
     
@@ -719,23 +749,20 @@
     
 
     
-    
-    
-    
-    
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(resource, id)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="get"><span class="type-signature"></span>get(resource, id)</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>List a specific resource</p>
@@ -745,7 +772,7 @@
     
 
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -753,23 +780,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -780,6 +807,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -792,7 +820,7 @@
             <td class="description last"><p>the resource to get</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -803,6 +831,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -815,15 +844,15 @@
             <td class="description last"><p>or name of the specific instance to get</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -860,17 +889,17 @@
 	
 </dl>
 
-    
-    
 
     
 
     
 
     
+
     
+
     
-    
+
     
     <h5>Returns:</h5>
     
@@ -878,32 +907,34 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Array</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="list"><span class="type-signature"></span>list<span class="signature">(resource)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="list"><span class="type-signature"></span>list(resource)</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>List a specific resource type</p>
@@ -913,7 +944,7 @@
     
 
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -921,23 +952,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -948,6 +979,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -960,15 +992,15 @@
             <td class="description last"><p>the resource to list</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -1005,17 +1037,17 @@
 	
 </dl>
 
-    
-    
 
     
 
     
 
     
+
     
+
     
-    
+
     
     <h5>Returns:</h5>
     
@@ -1023,32 +1055,34 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Array</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="plugins"><span class="type-signature"></span>plugins<span class="signature">(id, data)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="plugins"><span class="type-signature"></span>plugins(id, data)</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Creates and configures plugins for a specific API instance</p>
@@ -1058,7 +1092,7 @@
     
 
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -1066,23 +1100,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1093,6 +1127,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -1105,7 +1140,7 @@
             <td class="description last"><p>of the api the plugin should be assiociated with</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1116,6 +1151,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -1128,15 +1164,15 @@
             <td class="description last"><p>The configuration for the plugin</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -1173,17 +1209,17 @@
 	
 </dl>
 
-    
-    
 
     
 
     
 
     
+
     
+
     
-    
+
     
     <h5>Returns:</h5>
     
@@ -1191,32 +1227,34 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Promise</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="request"><span class="type-signature"></span>request<span class="signature">(resource, <span class="optional">id</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="request"><span class="type-signature"></span>request(resource, <span class="optional">id</span>)</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Generates a valid url for a kong request, cycling through one of the hosts for each call</p>
@@ -1226,7 +1264,7 @@
     
 
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -1234,25 +1272,25 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1263,6 +1301,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -1283,7 +1322,7 @@
             <td class="description last"><p>The type of resource to generate a url for ( api, plugin, consumer )</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1294,6 +1333,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -1316,15 +1356,15 @@
             <td class="description last"><p>the id or name of a specific resource</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -1361,17 +1401,17 @@
 	
 </dl>
 
-    
-    
 
     
 
     
 
     
+
     
+
     
-    
+
     
     <h5>Returns:</h5>
     
@@ -1383,32 +1423,34 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Promise</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="sync"><span class="type-signature"></span>sync<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="sync"><span class="type-signature"></span>sync()</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Syncs api and consumer configuration with a kong instance.<br>matching records will be updated<br>missing records will be created<br>records that do not exists in the configuration will be removed</p>
@@ -1418,13 +1460,13 @@
     
 
     
+
     
     
-    
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -1461,7 +1503,7 @@
 	
 </dl>
 
-    
+
     
 
     
@@ -1474,9 +1516,9 @@
     
 
     
+
     
-    
-    
+
     
     <h5>Returns:</h5>
     
@@ -1484,32 +1526,34 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Promise</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">(resource, id, data)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="update"><span class="type-signature"></span>update(resource, id, data)</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>pudates a resource in place by id, or name</p>
@@ -1519,7 +1563,7 @@
     
 
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -1527,23 +1571,23 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1554,6 +1598,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -1566,7 +1611,7 @@
             <td class="description last"><p>the name of the resource type ( api, plugin, consumer)</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1579,6 +1624,7 @@
 <span class="param-type">String</span>
 
 
+
             
             </td>
 
@@ -1589,7 +1635,7 @@
             <td class="description last"><p>The id or name of the resource to update</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1602,6 +1648,7 @@
 <span class="param-type">Object</span>
 
 
+
             
             </td>
 
@@ -1612,15 +1659,15 @@
             <td class="description last"><p>a data object to update the resource with</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -1657,17 +1704,17 @@
 	
 </dl>
 
-    
-    
 
     
 
     
 
     
+
     
+
     
-    
+
     
     <h5>Returns:</h5>
     
@@ -1675,32 +1722,34 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
         
             
+<hr>
 <dt>
-    <h4 class="name" id="url"><span class="type-signature"></span>url<span class="signature">(resource, <span class="optional">id</span>)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id="url"><span class="type-signature"></span>url(resource, <span class="optional">id</span>)</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Generates a valid url for a kong request, cycling through one of the hosts for each call</p>
@@ -1710,7 +1759,7 @@
     
 
     
-    
+
     
     
         <h5>Parameters:</h5>
@@ -1718,25 +1767,25 @@
 
 <table class="params table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1747,6 +1796,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -1767,7 +1817,7 @@
             <td class="description last"><p>The type of resource to generate a url for ( api, plugin, consumer )</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1778,6 +1828,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -1800,15 +1851,15 @@
             <td class="description last"><p>the id or name of a specific resource</p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 
     
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -1845,17 +1896,17 @@
 	
 </dl>
 
-    
-    
 
     
 
     
 
     
+
     
+
     
-    
+
     
     <h5>Returns:</h5>
     
@@ -1867,20 +1918,21 @@
 
 
 <dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">String</span>
 
 
-	</dd>
+
+    </dd>
 </dl>
 
 
         
-    
+
     
 </dd>
 
@@ -1892,6 +1944,7 @@
 
         <dl>
                 
+<hr>
 <dt class="name" id="~Api">
     <h4>Api</h4>
 
@@ -1912,41 +1965,42 @@
 <span class="param-type">Object</span>
 
 
+
             </li>
         </ul>
     
 
     
 <dl class="details">
-	
+    
 
-	<h5 class="subsection-title">Properties:</h5>
+    <h5 class="subsection-title">Properties:</h5>
 
-	<dl>
+    <dl>
 
 <table class="props table table-striped">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
+    <tr>
+        
+        <th>Name</th>
+        
 
-		<th>Type</th>
+        <th>Type</th>
 
-		
-		<th>Argument</th>
-		
+        
+        <th>Argument</th>
+        
 
-		
-		<th>Default</th>
-		
+        
+        <th>Default</th>
+        
 
-		<th class="last">Description</th>
-	</tr>
-	</thead>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
 
-	<tbody>
-	
+    <tbody>
+    
 
         <tr>
             
@@ -1957,6 +2011,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -1981,7 +2036,7 @@
             <td class="description last"><p>An object where the key is the name of a valid plugin, and the value is an object of the configuration to create/update it with</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -1992,6 +2047,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -2014,7 +2070,7 @@
             <td class="description last"><p>The name of the being created / updated</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2025,6 +2081,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -2049,7 +2106,7 @@
             <td class="description last"><p>Public DNS, or ip address</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2060,6 +2117,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -2084,7 +2142,7 @@
             <td class="description last"><p>The public path that points to your api - <code>/somservice</code>. On of <code>request_host</code> or <code>request_path</code> must be specified</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2095,6 +2153,7 @@
             
                 
 <span class="param-type">Boolean</span>
+
 
 
             
@@ -2121,7 +2180,7 @@
             <td class="description last"><p>Determines if the original request path is removed before proxying the request to the upstream service</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2132,6 +2191,7 @@
             
                 
 <span class="param-type">Boolean</span>
+
 
 
             
@@ -2158,7 +2218,7 @@
             <td class="description last"><p>Determines if the original <code>Host</code> header sent from the client should be preserved. If false, <code>upstream_url</code> is used</p></td>
         </tr>
 
-	
+    
 
         <tr>
             
@@ -2169,6 +2229,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -2191,12 +2252,12 @@
             <td class="description last"><p>The target URL of the backend service responsible for handling the request - <code>http://api.foobar.com</code></p></td>
         </tr>
 
-	
-	</tbody>
+    
+    </tbody>
 </table>
 </dl>
 
-	
+    
 
 	
 
@@ -2245,13 +2306,14 @@
 
         <dl>
             
+<hr>
 <dt>
     <h4 class="name" id="event:sync">sync</h4>
     
     
 </dt>
 <dd>
-    
+
     
     <div class="description">
         <p>Fired after all configured consumers and apis /w associated plugins have be synced to the cluster</p>
@@ -2261,13 +2323,13 @@
     
 
     
+
     
     
-    
-    
+
     
 <dl class="details">
-	
+    
 
 	
 
@@ -2304,7 +2366,11 @@
 	
 </dl>
 
+
     
+
+    
+
     
 
     
@@ -2312,11 +2378,7 @@
     
 
     
-    
-    
-    
-    
-    
+
     
 </dd>
 
@@ -2336,13 +2398,27 @@
 
 	
 		<div class="col-md-3">
-			<div id="toc" class="col-md-3"></div>
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
 		</div>
 	
 
 </div>
 </div>
 
+<div class="modal fade" id="searchResults">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Search results</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
 
 <footer>
 
@@ -2350,19 +2426,19 @@
 	<span class="copyright">
 	Threadmeup &copy 2015
 	</span>
-	<br />
 
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
-	on 2015-12-21T11:44:00-06:00 using the <a
-	href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+	
+		on 2015-12-21T11:55:10-06:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
 </footer>
 
-<!--<script src="scripts/sunlight.js"></script>-->
 <script src="scripts/docstrap.lib.js"></script>
-<script src="scripts/bootstrap-dropdown.js"></script>
 <script src="scripts/toc.js"></script>
+<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
 
 <script>
 $( function () {
@@ -2371,20 +2447,6 @@ $( function () {
 
 		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
 	} );
-
-	$( "#toc" ).toc( {
-		anchorName  : function ( i, heading, prefix ) {
-			return $( heading ).attr( "id" ) || ( prefix + i );
-		},
-		selectors   : "h1,h2,h3,h4",
-		showAndHide : false,
-		scrollTo    : "100px"
-	} );
-
-	$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
-	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
-	$( '.dropdown-toggle' ).dropdown();
-	//			$( ".tutorial-section pre, .readme-section pre" ).addClass( "sunlight-highlight-javascript" ).addClass( "linenums" );
 
 	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
 		var $this = $( this );
@@ -2397,7 +2459,8 @@ $( function () {
 			example.html( exampleText );
 			lang = lang[1];
 		} else {
-			lang = "javascript";
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
 		}
 
 		if ( lang ) {
@@ -2415,6 +2478,28 @@ $( function () {
 		showMenu : true,
 		enableDoclinks : true
 	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			var id = $( heading ).attr( "id" );
+			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
 } );
 </script>
 
@@ -2425,6 +2510,12 @@ $( function () {
 
 <!--Google Analytics-->
 
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		SearcherDisplay.init();
+	});
+</script>
 
 </body>
 </html>
