@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>King Module: king/lib/options</title>
+	<title>King Module: kingkong/lib/validation/api</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -69,14 +69,10 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: king/lib/options</h1>
+	<h1 class="page-title">Module: kingkong/lib/validation/api</h1>
 <section>
 
 <header>
-    
-        
-            
-        
     
 </header>
 
@@ -85,89 +81,23 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Provides a simple and standard way to include class configuration options</p></div>
+            <div class="description"><p>Provides api object schema validation</p></div>
         
 
         
-            
-<hr>
-<dt>
-    <h4 class="name" id="module:king/lib/options"><span class="type-signature"></span>new (require("king/lib/options"))(options)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Object class mixing which provides a standard way of defining configuration options on a class instance</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>and object containing configutation overrides to set on the class instance</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
 <dl class="details">
     
 
 	
 
 	
+	<dt class="tag-since method-doc-label method-doc-details-label">Since:</dt>
+	<dd class="tag-since">
+		<ul class="dummy">
+			<li>1.0.0</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -181,6 +111,13 @@
 
 	
 
+	
+	<dt class="tag-author method-doc-label method-doc-details-label">Author:</dt>
+	<dd class="tag-author">
+		<ul>
+			<li>Eric Satterwhite</li>
+			</ul>
+	</dd>
 	
 
 	
@@ -200,41 +137,6 @@
 	
 </dl>
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">var X = Class({
-  mixin: [ Options ]
-  ,options:{
-    &quot;value1&quot;: 1
-    ,&quot;value2&quot;:2
-  } 
-  , constructor: function( options ){
-      this.setOptions( options )
-  }
-});
-
-var x = new X({
-    &quot;value1&quot;:2
-    ,&quot;value2&quot;1
-})</pre>
-
-
-    
-</dd>
 
         
     
@@ -246,11 +148,7 @@ var x = new X({
         <h3 class="subsection-title">Requires</h3>
 
         <ul>
-            <li>module:prime</li>
-        
-            <li>module:mout/object/merge</li>
-        
-            <li>module:mout/array/append</li>
+            <li>module:joi</li>
         </ul>
     
 
@@ -262,158 +160,6 @@ var x = new X({
 
     
 
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id="~setOptions"><span class="type-signature">&lt;inner> </span>setOptions(Options)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>merges an object into existing instance options and stores them in an options property</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>Options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Objecdt</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>conifguration options to be merged into defaults</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        </dl>
     
 
     
