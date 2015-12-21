@@ -6,15 +6,16 @@
  * @author Eric Satterwhite
  * @since 0.0.1
  * @requires seeli
+ * @requires king
  */
 
 var seeli = require( 'seeli' )
-  , King = require('../lib/king')
+  , King = require('../lib/index')
   , List
   ;
 
 List = new seeli.Command({
-    description:'i am the king'
+    description:'Manage plugin instance registered with a kong cluster'
     ,usage:["test"]
     ,flags:{}
     ,run: function( directive, data, done ){

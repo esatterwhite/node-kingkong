@@ -9,12 +9,12 @@
  */
 
 var seeli = require( 'seeli' )
-  , King = require('../lib/king')
+  , King = require('../lib/index')
   , List
   ;
 
 List = new seeli.Command({
-    description:'i am the king'
+    description:'Manage Consumer instance registered with a kong cluster'
     ,usage:["test"]
     ,flags:{}
     ,run: function( directive, data, done ){

@@ -9,12 +9,12 @@
  */
 
 var seeli = require( 'seeli' )
-  , King = require('../lib/king')
+  , King = require('../lib/index')
   , Create
   ;
 
 Create = new seeli.Command({
-    description:'i am the king'
+    description:'Manage API instance registered with a Kong cluster'
     ,usage:[
         ''
         ,seeli.bold( 'directives' )
@@ -82,19 +82,19 @@ Create = new seeli.Command({
         switch( directive ){
             case 'create':
             case 'list':
-                instance[directove]('apis', data ).then( function( resp ){
+                instance[directive]('apis', data ).then( function( resp ){
                     done( null, JSON.stringify( resp, null, 2 ));
                 })
                 break;
             case 'destroy':
             case 'update':
-                instance[directiv]('apis', data.id ).then(funcntionfunction(res){
+                instance[directive]('apis', data.id ).then(function(res){
                     done( );
                 });
                 break;
 
             default:
-                return done( new Error('broke') )
+                return done( new Error(util.format( 'Invalid directive %s. Valid options are %s', directive, 'create, list, destroy, update') ) )
         }
     }
 });
