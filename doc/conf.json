@@ -18,7 +18,7 @@
 	,"templates":{
 		"systemName"			 : "King"
 		,"copyright"    		 : "Threadmeup &copy 2015"
-		,"theme"				 : "journal"
+		,"theme"				 : "paper"
 		,"outSourceFiles"		 : true
 		,"highlightTutorialCode" : true
 		,"linenum"				 : false
