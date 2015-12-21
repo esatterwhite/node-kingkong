@@ -1,4 +1,4 @@
-# king
+# kingkong
 HTTP Client For Kong Api Gateway
 
 King is a small library for managing `api`, `consumer` and `plugin` configuration of a KONG cluster.
@@ -7,11 +7,11 @@ admin api.
 
 It is **not** intended to configure kong servers
 
-A `king` instance can take multiple hosts and will round-robbin between them. Currently it will not remove hosts that fail to respond.
+A `kingkong` instance can take multiple hosts and will round-robbin between them. Currently it will not remove hosts that fail to respond.
 
 ```javascript
 require('util');
-var King = require('king');
+var King = require('kingkong');
 
 var k = new King({
     hosts:'http://localhost:8001, http://localhost:8002'
@@ -41,7 +41,7 @@ var k = new King({
 You can fetch all apis currently registered using the `list` method
 
 ```javascript
-var King = require('king')
+var King = require('kingkong')
 
 var k = new King({
     hosts:['http://localhost:8001', 'http://localhost:8002']
@@ -56,7 +56,7 @@ k.list('apis').then( console.log)
 You can fetch all Plugins currently registered using the `list` method
 
 ```javascript
-var King = require('king')
+var King = require('kingkong')
 
 var k = new King({
     hosts:['http://localhost:8001', 'http://localhost:8002']
@@ -70,7 +70,7 @@ k.list('plugins').then( console.log )
 You can fetch all Consumers currently registered using the `list` method
 
 ```javascript
-var King = require('king')
+var King = require('kingkong')
 
 var k = new King({
     hosts:['http://localhost:8001', 'http://localhost:8002']

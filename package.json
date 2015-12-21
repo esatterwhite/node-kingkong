@@ -1,5 +1,5 @@
 {
-  "name": "king",
+  "name": "kingkong",
   "version": "1.0.0",
   "description": "Generator based HTTP client for the Kong API Gateway",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/threadmeup/node-king.git"
+    "url": "git+https://github.com/threadmeup/node-kingkong.git"
   },
   "keywords": [
     "kong",
