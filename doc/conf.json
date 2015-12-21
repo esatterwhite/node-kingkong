@@ -1,0 +1,26 @@
+{
+	"source":{
+		"excludePattern":"\\.spec*"
+		,"include":["./README.md", "./"]
+		,"exclude":["node_modules", "commands"]
+	}
+	,"tags":{
+		"allowUnknownTags":true
+	}
+	,"opts":{
+		"recurse":true
+		,"template":"node_modules/ink-docstrap/template"
+		,"destination":"documentation"
+		,"tutorials":"doc/tutorials"
+	}
+	,"plugins":["plugins/markdown", "plugins/partial"]
+	,"markdown":{"parser":"gfm", "hardwrap":true}
+	,"templates":{
+		"systemName"			 : "King"
+		,"copyright"    		 : "Threadmeup &copy 2015"
+		,"theme"				 : "journal"
+		,"outSourceFiles"		 : true
+		,"highlightTutorialCode" : true
+		,"linenum"				 : false
+	}
+}
