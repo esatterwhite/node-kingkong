@@ -9,7 +9,7 @@ It is **not** intended to configure kong servers
 
 A `king` instance can take multiple hosts and will round-robbin between them. Currently it will not remove hosts that fail to respond.
 
-```js
+```javascript
 require('util');
 var King = require('king');
 
@@ -40,7 +40,7 @@ var k = new King({
 
 You can fetch all apis currently registered using the `list` method
 
-```js
+```javascript
 var King = require('king')
 
 var k = new King({
@@ -55,7 +55,7 @@ k.list('apis').then( console.log)
 
 You can fetch all Plugins currently registered using the `list` method
 
-```js
+```javascript
 var King = require('king')
 
 var k = new King({
@@ -69,7 +69,7 @@ k.list('plugins').then( console.log )
 
 You can fetch all Consumers currently registered using the `list` method
 
-```js
+```javascript
 var King = require('king')
 
 var k = new King({
