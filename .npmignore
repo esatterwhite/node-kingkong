@@ -1,3 +1,6 @@
 *.save
 test/
 *.tgz
+server.js
+doc/
+documentation/
