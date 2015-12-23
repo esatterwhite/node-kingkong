@@ -1,5 +1,5 @@
 # kingkong
-HTTP Client For Kong Api Gateway
+HTTP Client For [Kong](https://github.com/Mashape/kong) Api Gateway
 
 King is a small library for managing `api`, `consumer` and `plugin` configuration of a KONG cluster.
 The primary purpose is to keep API configuration in sync by either creating or updating records using the kong
