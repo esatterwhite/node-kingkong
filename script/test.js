@@ -2,10 +2,10 @@
 /*jshint laxcomma: true, smarttabs: true*/
 'use strict';
 /**
- * sampson test runner harness
+ * Simple test runner harness. Forks a mocha process so we can control the env a litte better
  * @module scripts/test
  * @author Eric Satterwhite
- * @since 0.0.1
+ * @since 1.0.0
  * @requires child_process
  * @requires module:mout/lang/clone
  * @requires fs
