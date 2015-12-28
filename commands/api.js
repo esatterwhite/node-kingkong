@@ -10,24 +10,26 @@
 
 var seeli = require( 'seeli' )
   , King = require('../lib/index')
-  , Create
+  , util = require('util')
+  , Api
   ;
 
-Create = new seeli.Command({
+Api = new seeli.Command({
     description:'Manage API instance registered with a Kong cluster'
     ,usage:[
         ''
-        ,seeli.bold( 'directives' )
-        ,seeli.green('   api')
-        ,seeli.green('   plugin')
-        ,seeli.green('   consumer')
-        ,''
+        , seeli.bold( 'Directives:' )
+        , seeli.bold( seeli.green('   create') )  + (' - create new api instances')
+        , seeli.bold( seeli.green('   list') )    + (' - dsplay api instances')
+        , seeli.bold( seeli.green('   destroy') ) + (' - remove api instances')
+        , seeli.bold( seeli.green('   update') )  + (' - modify api instances')
+        , ''
     ]
     ,flags:{
-        kong:{
+        host:{
             type:[String, Array]
             ,description:'Uri to a kong host'
-            ,shorthand:'k'
+            ,shorthand:'H'
             ,default:'http://0.0.0.0:8001'
         }
         ,name:{
@@ -74,9 +76,8 @@ Create = new seeli.Command({
 
     }
     ,run: function( directive, data, done ){
-        console.log( directive );
         var instance = new King({
-            hosts:data.kong
+            hosts:data.host
         });
 
         switch( directive ){
@@ -99,4 +100,4 @@ Create = new seeli.Command({
     }
 });
 
-module.exports = Create;
+module.exports = Api;
