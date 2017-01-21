@@ -1,6 +1,6 @@
 {
   "name": "kingkong",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Generator based HTTP client for the Kong API Gateway",
   "main": "index.js",
   "scripts": {
