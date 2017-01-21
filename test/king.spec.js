@@ -5,7 +5,7 @@ var co = require('co');
 
 describe('King', function(){
 	describe('~hosts', function(){
-        
+
         it('should accept a comma separated list of hosts', function( ){
             var k1 = new King({
                 hosts:"http://localhost:8001, http://localhost:8002,http://localhost:8003"
@@ -27,7 +27,7 @@ describe('King', function(){
 
             assert.equal( k1.options.hosts[0], 'http://localhost:8002' )
             assert.equal( k1.options.hosts[1], 'http://localhost:8003' )
-        
+
         })
 
 		describe('#url', function(){
@@ -58,7 +58,7 @@ describe('King', function(){
 				var first = k2.url().replace(/\/$/,'')
 				  , second
 				  ;
-			
+
                 assert.notEqual(k2.options.hosts.indexOf( first, -1 ) )
 				second = k2.url().replace(/\/$/, '')
 				assert.notEqual( first, second )
@@ -84,14 +84,14 @@ describe('King', function(){
                 }
             });
         });
-        
+
         after( function( done ){
             k1
                 .destroy('apis','__test')
                 .then( done.bind(null,null) )
-                .catch( done ); 
+                .catch( done );
         });
-        
+
         it('should auto create an api', function( done ){
             k1.list('apis').then( function( ls ){
                assert.ok( ls.length, 'should have created an api' );
@@ -127,6 +127,126 @@ describe('King', function(){
                     })
                 }
             });
+        })
+
+        it('should fail on bad api configuration', function( done ){
+            var k = new King({
+                apis:[{
+                    name:'__test',
+                    upstream_url:'localhost:9000',
+                    request_path:'/test',
+                    strip_request_path:true,
+                    request_path:'/test'
+                }]
+            });
+            k.sync()
+                .then(() => {
+                    //  This should never happen.
+                    assert(false);
+                })
+                .catch((err) => {
+                    assert(err);
+                    assert(err.message);
+                    assert(err.message.startsWith('Kong API failed for POST'));
+                    assert(err.message.endsWith('with 400: {"upstream_url":"upstream_url is not a url"}'));
+                    done();
+                });
+        })
+
+        it('should fail on unknown plugin', function( done ){
+            var k = new King({
+                apis:[{
+                    name:'__test',
+                    upstream_url:'http://localhost:9000',
+                    request_path:'/test',
+                    strip_request_path:true,
+                    request_path:'/test',
+                    plugins:{
+                        'bad-plugin':{
+                            config:{
+                                http_endpoint:'http://localhost:4343',
+                                method:'POST'
+                            }
+                        }
+                    }
+                }]
+            });
+            k.sync()
+                .then(() => {
+                    //  This should never happen.
+                    assert(false);
+                })
+                .catch((err) => {
+                    assert(err);
+                    assert(err.message);
+                    assert(err.message.startsWith('Kong API failed for PUT'));
+                    assert(err.message.endsWith('with 400: {"config":"Plugin \\"bad-plugin\\" not found"}'));
+                    done();
+                });
+        })
+
+        it('should fail on bad plugin config (1)', function( done ){
+            var k = new King({
+                apis:[{
+                    name:'__test',
+                    upstream_url:'http://localhost:9000',
+                    request_path:'/test',
+                    strip_request_path:true,
+                    request_path:'/test',
+                    plugins:{
+                        'http-log':{
+                            configs:{
+                                http_endpoint:'http://localhost:4343',
+                                method:'POST'
+                            }
+                        }
+                    }
+                }]
+            });
+            k.sync()
+                .then(() => {
+                    //  This should never happen.
+                    assert(false);
+                })
+                .catch((err) => {
+                    assert(err);
+                    assert(err.message);
+                    assert(err.message.startsWith('Kong API failed for PUT'));
+                    assert(err.message.endsWith('/plugins with 400: {"configs":"configs is an unknown field"}'));
+                    done();
+                });
+        })
+
+        it('should fail on bad plugin config (2)', function( done ){
+            var k = new King({
+                apis:[{
+                    name:'__test',
+                    upstream_url:'http://localhost:9000',
+                    request_path:'/test',
+                    strip_request_path:true,
+                    request_path:'/test',
+                    plugins:{
+                        'http-log':{
+                            config:{
+                                httpendpoint:'http://localhost:4343',
+                                method:'POST'
+                            }
+                        }
+                    }
+                }]
+            });
+            k.sync()
+                .then(() => {
+                    //  This should never happen.
+                    assert(false);
+                })
+                .catch((err) => {
+                    assert(err);
+                    assert(err.message);
+                    assert(err.message.startsWith('Kong API failed for PUT'));
+                    assert(err.message.endsWith('plugins with 400: {"config.httpendpoint":"httpendpoint is an unknown field"}'));
+                    done();
+                });
         })
 
         it('should auto update existing apis when instanciated', function( done ){
@@ -171,8 +291,8 @@ describe('King', function(){
 
         it('should allow known resource types',function( done ){
             co( function*(){
-                yield k3.request('get','api');    
-                yield k3.request('get','apis');    
+                yield k3.request('get','api');
+                yield k3.request('get','apis');
                 yield k3.request('get','consumer');
                 yield k3.request('get','consumers');
                 yield k3.request('get','plugin');
