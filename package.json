@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/threadmeup/node-kingkong.git"
+    "url": "git+https://github.com/esatterwhite/node-kingkong.git"
   },
   "keywords": [
     "kong",
@@ -19,7 +19,7 @@
     "gateway",
     "mashape",
     "fulfill",
-    "threadmeup",
+    "esatterwhite",
     "microservice",
     "king"
   ],
@@ -30,9 +30,9 @@
   "author": "Eric Satterwhite <esatterwhite@wi.rr.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/threadmeup/node-king/issues"
+    "url": "https://github.com/esatterwhite/node-kingkong/issues"
   },
-  "homepage": "https://github.com/threadmeup/node-king#readme",
+  "homepage": "https://github.com/esatterwhite/node-kingkong#readme",
   "dependencies": {
     "co": "^4.6.0",
     "co-request": "^1.0.0",
