@@ -75,9 +75,14 @@ describe('King', function(){
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
-                    request_path:'/test',
-                    strip_request_path:true,
-                    request_path:'/test'
+                    uris:['/test'],
+                    strip_uri:true,
+                    retries: 7,
+                    upstream_connect_timeout: 90000,
+                    upstream_read_timeout: 90000,
+                    upstream_send_timeout: 90000,
+                    http_if_terminated: false,
+                    https_only: false
                 }]
                 ,onSync: function(){
                     done();
@@ -106,9 +111,8 @@ describe('King', function(){
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
-                    request_path:'/test',
-                    strip_request_path:true,
-                    request_path:'/test',
+                    uris:['/test'],
+                    strip_uri:true,
                     plugins:{
                         'http-log':{
                             config:{
@@ -134,9 +138,8 @@ describe('King', function(){
                 apis:[{
                     name:'__test',
                     upstream_url:'localhost:9000',
-                    request_path:'/test',
-                    strip_request_path:true,
-                    request_path:'/test'
+                    uris:['/test'],
+                    strip_uri:true
                 }]
             });
             k.sync()
@@ -158,9 +161,8 @@ describe('King', function(){
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
-                    request_path:'/test',
-                    strip_request_path:true,
-                    request_path:'/test',
+                    uris:['/test'],
+                    strip_uri:true,
                     plugins:{
                         'bad-plugin':{
                             config:{
@@ -190,9 +192,8 @@ describe('King', function(){
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
-                    request_path:'/test',
-                    strip_request_path:true,
-                    request_path:'/test',
+                    uris:['/test'],
+                    strip_uri:true,
                     plugins:{
                         'http-log':{
                             configs:{
@@ -222,9 +223,8 @@ describe('King', function(){
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
-                    request_path:'/test',
-                    strip_request_path:true,
-                    request_path:'/test',
+                    uris:['/test'],
+                    strip_uri:true,
                     plugins:{
                         'http-log':{
                             config:{
@@ -255,15 +255,14 @@ describe('King', function(){
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
-                    request_path:'/test',
-                    strip_request_path:false,
-                    request_path:'/test'
+                    uris:['/test'],
+                    strip_uri:false
                 }]
                 ,onSync:function(){
                     setTimeout(function(){
                         k2.request('get','apis','__test')
                           .then( function( data ){
-                                assert.strictEqual(data.body.strip_request_path, false);
+                                assert.strictEqual(data.body.strip_uri, false);
                                 done();
                           })
                           .catch( done )

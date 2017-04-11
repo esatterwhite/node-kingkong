@@ -31,7 +31,7 @@ var child_process = require('child_process')               // child proces for s
   ;
 
 root = path.resolve(__dirname)
-root = path.join(root,  "../**/test/*.spec.js" )
+root = path.join(root,  `../**/test/*.spec.js` )
 // inject some test vars into the env
 env.MOCHA_COLORS = 1
 
