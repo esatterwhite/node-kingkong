@@ -7,6 +7,8 @@ admin api.
 
 It is **not** intended to configure kong servers
 
+Version 2.x targest Kong v0.10.0+, for Kong v0.9.0, use Version 1.x of this project
+
 A `kingkong` instance can take multiple hosts and will round-robbin between them. Currently it will not remove hosts that fail to respond.
 
 ```javascript

@@ -16,8 +16,8 @@
 	,"plugins":["plugins/markdown", "plugins/partial"]
 	,"markdown":{"parser":"gfm", "hardwrap":true}
 	,"templates":{
-		"systemName"			 : "King"
-		,"copyright"    		 : "Threadmeup &copy 2015"
+		"systemName"			 : "Kingkong"
+		,"copyright"    		 : "Threadmeup &copy 2015, Eric satterwhtie &copy 2016"
 		,"theme"				 : "paper"
 		,"outSourceFiles"		 : true
 		,"highlightTutorialCode" : true
