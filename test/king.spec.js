@@ -288,15 +288,25 @@ describe('King', function(){
             done();
         });
 
-        it('should allow known resource types',function( done ){
-            co( function*(){
-                yield k3.request('get','api');
-                yield k3.request('get','apis');
-                yield k3.request('get','consumer');
-                yield k3.request('get','consumers');
-                yield k3.request('get','plugin');
-                yield k3.request('get','plugins');
-            }).then( done.bind(null, null )).catch( done );
-        })
-    });
+        it('should allow known resource types', function(done) {
+            co(function*() {
+                return {
+                    api      : (yield k3.request('get', 'api')).body,
+                    apis     : (yield k3.request('get', 'apis')).body,
+                    consumer : (yield k3.request('get', 'consumer')).body,
+                    consumers: (yield k3.request('get', 'consumers')).body,
+                    plugin   : (yield k3.request('get', 'plugin')).body,
+                    plugins  : (yield k3.request('get', 'plugins')).body,
+                }
+            }).then((data) => {
+                assert(data instanceof Object);
+                for (var key in data) {
+                    var body = data[key];
+                    assert(body.data instanceof Array);
+                    assert(typeof body.total === 'number');
+                }
+                done();
+            }).catch(done);
+        });
+  });
 });
