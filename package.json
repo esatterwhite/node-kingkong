@@ -4,7 +4,9 @@
   "description": "Generator based HTTP client for the Kong API Gateway",
   "main": "index.js",
   "scripts": {
-    "test": "node script/test.js"
+    "test": "node script/test.js",
+    "test:integration": "docker-compose -f compose/test.yml up --abort-on-container-exit",
+    "posttest:integration": "docker-compose -f compose/test.yml down"
   },
   "bin": {
     "king": "bin/cli.js"

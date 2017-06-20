@@ -1,0 +1,28 @@
+version: '2'
+services:
+
+  cassandra:
+    image: cassandra:3
+
+  kong:
+    build: ./kong
+    environment:
+      KONG_DATABASE: cassandra
+      KONG_CASSANDRA_CONTACT_POINTS: cassandra
+      CASSANDRA_HOSTNAME: cassandra
+      CASSANDRA_PORT: 9042
+    ports:
+      - "8000-8001:8000-8001"
+    depends_on:
+      - cassandra
+    command: start_kong
+
+  king-kong:
+    build: ../
+    environment:
+      KONG_HOST: kong
+    command: >
+      bash -c "while ! tcping -q kong 8001; do sleep 0.5; done && npm test"
+    depends_on:
+      - kong
+      - cassandra

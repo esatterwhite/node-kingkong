@@ -2,6 +2,8 @@
 var assert = require('assert');
 var King = require('../lib');
 var co = require('co');
+var KONG_HOST = process.env.KONG_HOST || 'localhost'
+
 
 describe('King', function(){
 	describe('~hosts', function(){
@@ -72,6 +74,7 @@ describe('King', function(){
         before(function( done ){
             k1 = new King({
                 sync:true,
+                hosts: `http://${KONG_HOST}:8001`,
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
@@ -108,6 +111,7 @@ describe('King', function(){
         it('should create defined plugins', function( done ){
             var k2 = new King({
                 sync:true,
+                hosts: `http://${KONG_HOST}:8001`,
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
@@ -135,6 +139,7 @@ describe('King', function(){
 
         it('should fail on bad api configuration', function( done ){
             var k = new King({
+                hosts: `http://${KONG_HOST}:8001`,
                 apis:[{
                     name:'__test',
                     upstream_url:'localhost:9000',
@@ -158,6 +163,7 @@ describe('King', function(){
 
         it('should fail on unknown plugin', function( done ){
             var k = new King({
+                hosts: `http://${KONG_HOST}:8001`,
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
@@ -189,6 +195,7 @@ describe('King', function(){
 
         it('should fail on bad plugin config (1)', function( done ){
             var k = new King({
+                hosts: `http://${KONG_HOST}:8001`,
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
@@ -220,6 +227,7 @@ describe('King', function(){
 
         it('should fail on bad plugin config (2)', function( done ){
             var k = new King({
+                hosts: `http://${KONG_HOST}:8001`,
                 apis:[{
                     name:'__test',
                     upstream_url:'http://localhost:9000',
@@ -251,6 +259,7 @@ describe('King', function(){
 
         it('should auto update existing apis when instanciated', function( done ){
             var k2 = new King({
+                hosts: `http://${KONG_HOST}:8001`,
                 sync:true,
                 apis:[{
                     name:'__test',
@@ -276,7 +285,7 @@ describe('King', function(){
         var k3;
         before(function( done ){
             k3 = new King({
-                host:['http://locahost:8001', 'http://localhost:8002']
+                hosts:[`http://${KONG_HOST}:8001`, `http://${KONG_HOST}:8001`]
             });
             done();
         });
