@@ -1,0 +1,6 @@
+sudo: required
+services:
+  - docker
+
+script: npm run test:integration
+language: node_js
