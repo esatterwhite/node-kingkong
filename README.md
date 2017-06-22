@@ -1,4 +1,4 @@
-# King Kong
+# King Kong [![Build Status](https://travis-ci.org/esatterwhite/node-kingkong.svg?branch=master)](https://travis-ci.org/esatterwhite/node-kingkong)
 HTTP Client For [Kong](https://github.com/Mashape/kong) Api Gateway
 
 King is a small library for managing `api`, `consumer` and `plugin` configuration of a KONG cluster.
