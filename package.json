@@ -20,10 +20,10 @@
     "api",
     "gateway",
     "mashape",
-    "fulfill",
     "esatterwhite",
+    "api",
     "microservice",
-    "king"
+    "kingkong"
   ],
   "engines": {
     "node": ">=0.12.0",
